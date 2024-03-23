@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.constant.Constants;
 import com.example.demo.enums.Currencies;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -77,6 +79,12 @@ public class OperationCheck {
         if(totalCashierAmount < amount){
             throw new IllegalArgumentException("Not enough money in cash desk!");
         }
+    }
+
+    protected static String getCurrentTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return currentDateTime.format(formatter);
     }
 
 }

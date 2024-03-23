@@ -3,10 +3,14 @@ package com.example.demo.service;
 import com.example.demo.DTO.WithdrawDto;
 import com.example.demo.constant.Constants;
 import com.example.demo.enums.Currencies;
+import com.example.demo.logger.FileLogger;
 import com.example.demo.model.Cashier;
 import com.example.demo.repository.CashierRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -17,8 +21,11 @@ public class WithdrawService {
 
     private final CashierRepository cashierRepository;
 
-    public WithdrawService(CashierRepository cashierRepository) {
+    private final FileLogger fileLogger;
+
+    public WithdrawService(CashierRepository cashierRepository, @Qualifier("fileLoggerWithdrawTransactions") FileLogger fileLogger) {
         this.cashierRepository = cashierRepository;
+        this.fileLogger = fileLogger;
     }
 
     public WithdrawDto withdraw(WithdrawDto withdrawDto) {
@@ -35,6 +42,9 @@ public class WithdrawService {
             cashier.setAmountBGN(cashier.getAmountBGN() - withdrawDto.getAmount());
             cashier.setWithdrawsCount(cashier.getWithdrawsCount() + 1);
             this.cashierRepository.saveAndFlush(cashier);
+            fileLogger.writeToLogFile("Log - - - " + OperationCheck.getCurrentTime());
+            fileLogger.writeToLogFile("Cashier with name " + cashier.getName() + " has just withdrawn from the cash module " + withdrawDto.getAmount()+ "BGN!");
+
 
 
         } else if (withdrawDto.getCurrency().equals("EUR")) {
@@ -46,6 +56,8 @@ public class WithdrawService {
             cashier.setAmountEUR(cashier.getAmountEUR() - withdrawDto.getAmount());
             cashier.setWithdrawsCount(cashier.getWithdrawsCount() + 1);
             this.cashierRepository.saveAndFlush(cashier);
+            fileLogger.writeToLogFile("Log - - - " + OperationCheck.getCurrentTime());
+            fileLogger.writeToLogFile("Cashier with name " + cashier.getName() + " has just withdrawn from the cash module " + withdrawDto.getAmount()+ "EUR!");
 
         } else {
             throw new IllegalArgumentException("Invalid operation type! Choose between BGN or EUR!");

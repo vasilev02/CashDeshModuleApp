@@ -1,0 +1,8 @@
+Log - - - 2024-03-24 00:30:21
+Cashier with name Martina has just withdrawn from the cash module 50EUR!
+Log - - - 2024-03-24 00:31:40
+Cashier with name Martina has just withdrawn from the cash module 50BGN!
+Log - - - 2024-03-24 00:31:58
+Cashier with name Martina has just withdrawn from the cash module 50BGN!
+Log - - - 2024-03-24 00:32:00
+Cashier with name Martina has just withdrawn from the cash module 50BGN!

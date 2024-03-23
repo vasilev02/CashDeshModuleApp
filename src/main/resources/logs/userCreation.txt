@@ -1,0 +1,2 @@
+Log - - - 2024-03-24 00:27:26
+New cashier with name Martina was created!

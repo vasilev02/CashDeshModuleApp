@@ -1,0 +1,30 @@
+Log - - - - - - - - - - - -2024-03-24 00:25:16
+Cashier with name Ivana checked his balance!
+Total amount BGN: 400.0and EUR: 0.0
+5 BGN - 0 times
+10 BGN - 0 times
+20 BGN - 0 times
+50 BGN - 8 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 0 times
+20 EUR - 0 times
+50 EUR - 0 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times
+Log - - - 2024-03-24 00:32:39
+Cashier with name Martina checked his balance!
+Total amount BGN: 0.0and EUR: 50.0
+5 BGN - 0 times
+10 BGN - 0 times
+20 BGN - 0 times
+50 BGN - 0 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 0 times
+20 EUR - 0 times
+50 EUR - 1 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times

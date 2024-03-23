@@ -3,8 +3,10 @@ package com.example.demo.service;
 import com.example.demo.DTO.DepositDto;
 import com.example.demo.constant.Constants;
 import com.example.demo.enums.Currencies;
+import com.example.demo.logger.FileLogger;
 import com.example.demo.model.Cashier;
 import com.example.demo.repository.CashierRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +19,11 @@ public class DepositService {
 
     private final CashierRepository cashierRepository;
 
-    public DepositService(CashierRepository cashierRepository) {
+    private final FileLogger fileLogger;
+
+    public DepositService(CashierRepository cashierRepository, @Qualifier("fileLoggerDepositTransactions") FileLogger fileLogger) {
         this.cashierRepository = cashierRepository;
+        this.fileLogger = fileLogger;
     }
 
     public DepositDto deposit(DepositDto depositDto) {
@@ -34,7 +39,8 @@ public class DepositService {
             cashier.setAmountBGN(cashier.getAmountBGN() + depositDto.getAmount());
             cashier.setDepositsCount(cashier.getDepositsCount() + 1);
             this.cashierRepository.saveAndFlush(cashier);
-
+            fileLogger.writeToLogFile("Log - - - " + OperationCheck.getCurrentTime());
+            fileLogger.writeToLogFile("Cashier with name " + cashier.getName() + " has just deposited to the cash module " + depositDto.getAmount()+ "BGN!");
 
         } else if (depositDto.getCurrency().equals("EUR")) {
 
@@ -44,6 +50,8 @@ public class DepositService {
             cashier.setAmountEUR(cashier.getAmountEUR() + depositDto.getAmount());
             cashier.setDepositsCount(cashier.getDepositsCount() + 1);
             this.cashierRepository.saveAndFlush(cashier);
+            fileLogger.writeToLogFile("Log - - - " + OperationCheck.getCurrentTime());
+            fileLogger.writeToLogFile("Cashier with name " + cashier.getName() + " has just deposited to the cash module " + depositDto.getAmount()+ "EUR!");
 
         } else {
             throw new IllegalArgumentException("Invalid operation type! Choose between BGN or EUR!");

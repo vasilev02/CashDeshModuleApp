@@ -1,5 +1,7 @@
 package com.example.demo.security;
 
+import com.example.demo.constant.Constants;
+import com.example.demo.logger.FileLogger;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +15,34 @@ public class SecurityBeans {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
+    }
+
+    @Bean
+    public FileLogger fileLoggerUserCreation() {
+        FileLogger fileLogger = new FileLogger();
+        fileLogger.setFilepath(Constants.FILE_PATH_CASHIER_CREATION);
+        return fileLogger;
+    }
+
+    @Bean
+    public FileLogger fileLoggerDepositTransactions() {
+        FileLogger fileLogger = new FileLogger();
+        fileLogger.setFilepath(Constants.FILE_PATH_DEPOSIT_OPERATION);
+        return fileLogger;
+    }
+
+    @Bean
+    public FileLogger fileLoggerWithdrawTransactions() {
+        FileLogger fileLogger = new FileLogger();
+        fileLogger.setFilepath(Constants.FILE_PATH_WITHDRAW_OPERATION);
+        return fileLogger;
+    }
+
+    @Bean
+    public FileLogger fileLoggerCashBalance() {
+        FileLogger fileLogger = new FileLogger();
+        fileLogger.setFilepath(Constants.FILE_PATH_CASH_BALANCE);
+        return fileLogger;
     }
 
 }

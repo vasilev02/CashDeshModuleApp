@@ -1,0 +1,10 @@
+Log - - - 2024-03-24 00:28:06
+Cashier with name Martina has just deposited to the cash module 50BGN!
+Log - - - 2024-03-24 00:28:16
+Cashier with name Martina has just deposited to the cash module 50BGN!
+Log - - - 2024-03-24 00:28:32
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 00:29:19
+Cashier with name Martina has just deposited to the cash module 50BGN!
+Log - - - 2024-03-24 00:29:40
+Cashier with name Martina has just deposited to the cash module 50EUR!
