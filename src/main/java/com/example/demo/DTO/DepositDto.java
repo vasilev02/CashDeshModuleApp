@@ -9,7 +9,7 @@ public class DepositDto {
 
     private String currency;
 
-    private double amount;
+    private int amount;
 
     private int[] banknotes;
 
