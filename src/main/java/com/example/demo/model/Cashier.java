@@ -18,4 +18,12 @@ public class Cashier {
 
     private String apiKey;
 
+    private double amountBGN;
+
+    private double amountEUR;
+
+    private int[] quantitiesBGN;
+
+    private int[] quantitiesEUR;
+
 }

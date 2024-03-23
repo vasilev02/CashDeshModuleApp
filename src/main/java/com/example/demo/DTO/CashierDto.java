@@ -1,6 +1,5 @@
 package com.example.demo.DTO;
 
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class CashierDto {
 
-    @Column(name = "name", nullable = false)
     private String name;
 
 }
