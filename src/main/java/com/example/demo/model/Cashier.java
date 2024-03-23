@@ -18,6 +18,10 @@ public class Cashier {
 
     private String apiKey;
 
+    private int depositsCount;
+
+    private int withdrawsCount;
+
     private double amountBGN;
 
     private double amountEUR;
