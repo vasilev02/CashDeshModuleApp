@@ -7,6 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * BalanceCheckController class is responsible for processing incoming REST API requests.
+ *
+ * After request being invoked, the controller methods starts to process the web
+ * request by interacting with the service layer in CashierService to complete the work that needs to be done.
+ */
 @RestController
 @RequestMapping("/api/v1/cash-balance")
 public class BalanceCheckController {
@@ -17,6 +23,14 @@ public class BalanceCheckController {
         this.cashierService = cashierService;
     }
 
+    /**
+     *The method is used to check the balance of cashier.
+     *
+     * @param course consist of id, type and name
+     * @return either HashMap<String, String> or Exception info
+     * @throws jakarta.persistence.EntityNotFoundException when cashier does not exist
+     * @throws IllegalArgumentException when we try to get balance but we do not fulfill all requirements
+     */
     @PostMapping("/check")
     public ResponseEntity<Object> balanceCheck(@RequestBody CashierDto cashierDto) {
         try {

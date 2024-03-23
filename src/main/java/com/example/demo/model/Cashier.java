@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Cashier model class is used to create Cashier with ID and other properties when being saved in the PostgreDB.
+ */
 @Entity
 @Getter
 @Setter

@@ -5,6 +5,9 @@ import com.example.demo.enums.Currencies;
 
 import java.util.List;
 
+/**
+ * OperationCheck class is a class with common methods between some services to check some data.
+ */
 public class OperationCheck {
 
     protected static void validateAmount(int amount, int[] banknotes) {

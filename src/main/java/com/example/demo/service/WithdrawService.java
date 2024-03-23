@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * WithdrawService class is a service clas which deal with the business logic regarding withdraw operation.
+ */
 @Service
 public class WithdrawService {
 

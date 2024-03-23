@@ -5,6 +5,7 @@ import com.example.demo.constant.Constants;
 import com.example.demo.model.Cashier;
 import com.example.demo.repository.CashierRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
@@ -16,6 +17,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * CashierService class is a service clas which deal with the business logic regarding Cashier model .
+ */
 @Service
 public class CashierService {
 
@@ -59,7 +63,7 @@ public class CashierService {
 
         Cashier cashier = this.cashierRepository.findByName(cashierDto.getName());
         if (cashier == null) {
-            throw new IllegalArgumentException("Cashier with that name does not exist!");
+            throw new EntityNotFoundException("Cashier with that name does not exist!");
         }
 
         int[] quantitiesBGN = cashier.getQuantitiesBGN();
@@ -97,7 +101,7 @@ public class CashierService {
     private void checkIfCashierWithNameExist(String name) {
         Cashier cashier = this.cashierRepository.findByName(name);
         if (cashier != null) {
-            throw new IllegalArgumentException("Cashier with that name already exist!");
+            throw new EntityNotFoundException("Cashier with that name already exist!");
         }
     }
 

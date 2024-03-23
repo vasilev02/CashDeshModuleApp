@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * DepositService class is a service clas which deal with the business logic regarding deposit operation.
+ */
 @Service
 public class DepositService {
 

@@ -9,6 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * CashOperationController class is responsible for processing incoming REST API requests.
+ *
+ * After request being invoked, the controller methods starts to process the web
+ * request by interacting with the service layer in DepositService or WithdrawService to complete the work that needs to be done.
+ */
 @RestController
 @RequestMapping("/api/v1/cash-operation")
 public class CashOperationController {
@@ -21,6 +27,14 @@ public class CashOperationController {
         this.withdrawService = withdrawService;
     }
 
+    /**
+     *The method is used to deposit money.
+     *
+     * @param depositDto consist of currency, amount, banknotes
+     * @return either depositDto or Exception info
+     * @throws jakarta.persistence.EntityNotFoundException when cashier does not exist
+     * @throws IllegalArgumentException when we have inconsistent denomination or quantities data
+     */
     @PostMapping("/deposit")
         public ResponseEntity<Object> deposit(@RequestBody DepositDto depositDto) {
         try {
@@ -30,6 +44,14 @@ public class CashOperationController {
         }
     }
 
+    /**
+     *The method is used to deposit money.
+     *
+     * @param withdrawDto consist of currency, amount, banknotes
+     * @return either withdrawDto or Exception info
+     * @throws jakarta.persistence.EntityNotFoundException when cashier does not exist
+     * @throws IllegalArgumentException when we have inconsistent denomination or quantities data
+     */
     @PostMapping("/withdraw")
     public ResponseEntity<Object> withdraw(@RequestBody WithdrawDto withdrawDto) {
         try {

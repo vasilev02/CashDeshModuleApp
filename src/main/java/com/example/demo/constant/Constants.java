@@ -2,6 +2,9 @@ package com.example.demo.constant;
 
 import java.util.List;
 
+/**
+ * Constants class is used for constants and predefined values.
+ */
 public class Constants {
 
     public final static double AMOUNT_IN_BGN = 1000.0;

@@ -6,6 +6,10 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+/**
+ * ApiException class is used to create Exception with date, status and message to display in our API when something do not
+ * fulfill our requirements.
+ */
 @Getter
 public class ApiException {
 

@@ -1,5 +1,8 @@
 package com.example.demo.enums;
 
+/**
+ * Enum class to display all available currencies which our app is using.
+ */
 public enum Currencies {
     BGN("BGN"),EUR("EUR");
 
