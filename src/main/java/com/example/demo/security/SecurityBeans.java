@@ -5,6 +5,8 @@ import com.example.demo.logger.FileLogger;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * SecurityBeans class  is used to make beans which we are using with only one instance through our whole life of application.
@@ -15,6 +17,11 @@ public class SecurityBeans {
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
+    }
+
+    @Bean
+    public PasswordEncoder createPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean

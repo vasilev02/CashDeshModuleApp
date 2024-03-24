@@ -28,3 +28,63 @@ Total amount BGN: 0.0and EUR: 50.0
 100 EUR - 0 times
 200 EUR - 0 times
 500 EUR - 0 times
+Log - - - 2024-03-24 11:37:44
+Cashier with name Martina checked his balance!
+Total amount BGN: 0.0and EUR: 150.0
+5 BGN - 0 times
+10 BGN - 0 times
+20 BGN - 0 times
+50 BGN - 0 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 0 times
+20 EUR - 0 times
+50 EUR - 3 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times
+Log - - - 2024-03-24 11:43:59
+Cashier with name Martina checked his balance!
+Total amount BGN: 0.0and EUR: 50.0
+5 BGN - 0 times
+10 BGN - 0 times
+20 BGN - 0 times
+50 BGN - 0 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 0 times
+20 EUR - 0 times
+50 EUR - 1 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times
+Log - - - 2024-03-24 12:50:24
+Cashier with name Martina checked his balance!
+Total amount BGN: 1500.0and EUR: 1700.0
+5 BGN - 0 times
+10 BGN - 55 times
+20 BGN - 0 times
+50 BGN - 19 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 100 times
+20 EUR - 5 times
+50 EUR - 12 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times
+Log - - - 2024-03-24 13:02:31
+Cashier with name Martina checked his balance!
+Total amount BGN: 1500.0and EUR: 1700.0
+5 BGN - 0 times
+10 BGN - 55 times
+20 BGN - 0 times
+50 BGN - 19 times
+100 BGN - 0 times
+5 EUR - 0 times
+10 EUR - 100 times
+20 EUR - 5 times
+50 EUR - 12 times
+100 EUR - 0 times
+200 EUR - 0 times
+500 EUR - 0 times

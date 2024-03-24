@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.DTO.CashierDto;
+import com.example.demo.DTO.CashierRegisteredDto;
 import com.example.demo.constant.Constants;
 import com.example.demo.logger.FileLogger;
 import com.example.demo.model.Cashier;
@@ -10,10 +11,9 @@ import jakarta.persistence.EntityNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -24,36 +24,38 @@ public class CashierService {
 
     private final CashierRepository cashierRepository;
     private final ModelMapper modelMapper;
-
     private final FileLogger fileLoggerUserCreation;
     private final FileLogger fileLoggerCashBalance;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public CashierService(CashierRepository cashierRepository, ModelMapper modelMapper, @Qualifier("fileLoggerUserCreation") FileLogger fileLoggerUserCreation, @Qualifier("fileLoggerCashBalance") FileLogger fileLoggerCashBalance) {
+    public CashierService(CashierRepository cashierRepository, ModelMapper modelMapper, @Qualifier("fileLoggerUserCreation") FileLogger fileLoggerUserCreation, @Qualifier("fileLoggerCashBalance") FileLogger fileLoggerCashBalance, PasswordEncoder passwordEncoder) {
         this.cashierRepository = cashierRepository;
         this.modelMapper = modelMapper;
         this.fileLoggerUserCreation = fileLoggerUserCreation;
         this.fileLoggerCashBalance = fileLoggerCashBalance;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public CashierDto createCashier(CashierDto cashierDto) {
+    public CashierRegisteredDto createCashier(CashierDto cashierDto) {
 
         this.checkIfCashierWithNameExist(cashierDto.getName());
 
         Cashier cashier = this.modelMapper.map(cashierDto, Cashier.class);
 
-        cashier.setApiKey(UUID.randomUUID().toString());
+        String uuid = UUID.randomUUID().toString();
+        cashier.setApiKey(passwordEncoder.encode(uuid));
 
         cashier.setDepositsCount(0);
         cashier.setWithdrawsCount(0);
 
-        cashier.setAmountBGN(0);
-        cashier.setAmountEUR(0);
+        cashier.setAmountBGN(Constants.AMOUNT_IN_BGN);
+        cashier.setAmountEUR(Constants.AMOUNT_IN_EUR);
 
-        int[] quantitiesBGN = {0, 0, 0, 0, 0};
+        int[] quantitiesBGN = {0, 50, 0, 10, 0};
         cashier.setQuantitiesBGN(quantitiesBGN);
 
-        int[] quantitiesEUR = {0, 0, 0, 0, 0, 0, 0};
+        int[] quantitiesEUR = {0, 100, 0, 20, 0, 0, 0};
         cashier.setQuantitiesEUR(quantitiesEUR);
 
         this.cashierRepository.save(cashier);
@@ -61,7 +63,7 @@ public class CashierService {
         fileLoggerUserCreation.writeToLogFile("Log - - - " + OperationCheck.getCurrentTime());
         fileLoggerUserCreation.writeToLogFile("New cashier with name " + cashierDto.getName() + " was created!");
 
-        return cashierDto;
+        return new CashierRegisteredDto(cashierDto.getName(), uuid);
     }
 
     public HashMap<String, String> balanceCheck(CashierDto cashierDto) {
@@ -116,6 +118,17 @@ public class CashierService {
         if (cashier != null) {
             throw new EntityNotFoundException("Cashier with that name already exist!");
         }
+    }
+
+    public Cashier getApiKey(String apiKey) {
+        List<Cashier> cashiers = this.cashierRepository.findAll();
+        for (int i = 0; i < cashiers.size(); i++) {
+            String cryptedKey = cashiers.get(i).getApiKey();
+            if (passwordEncoder.matches(apiKey, cryptedKey)) {
+                return cashiers.get(i);
+            }
+        }
+        return null;
     }
 
 }

@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.CashierDto;
+import com.example.demo.DTO.CashierRegisteredDto;
 import com.example.demo.exception.ApiException;
 import com.example.demo.service.CashierService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 
 /**
  * CashierController class is responsible for processing incoming REST API requests.
@@ -34,7 +34,7 @@ public class CashierController {
     @PostMapping("/create-cashier")
     public ResponseEntity<Object> createCashier(@RequestBody CashierDto cashierDto) {
         try {
-            CashierDto newlyCreatedCashier = this.cashierService.createCashier(cashierDto);
+            CashierRegisteredDto newlyCreatedCashier = this.cashierService.createCashier(cashierDto);
             return new ResponseEntity<>(newlyCreatedCashier, HttpStatus.CREATED);
         }catch (Exception e){
             return buildResponseEntity(new ApiException(HttpStatus.BAD_REQUEST, e.getMessage()));

@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.CashierDto;
+import com.example.demo.constant.Constants;
 import com.example.demo.exception.ApiException;
+import com.example.demo.model.Cashier;
 import com.example.demo.service.CashierService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +34,17 @@ public class BalanceCheckController {
      * @throws IllegalArgumentException when we try to get balance but we do not fulfill all requirements
      */
     @PostMapping("/check")
-    public ResponseEntity<Object> balanceCheck(@RequestBody CashierDto cashierDto) {
+    public ResponseEntity<Object> balanceCheck(@RequestHeader(Constants.FIB_X_AUTH) String apiKey, @RequestBody CashierDto cashierDto) {
         try {
-            return new ResponseEntity<>(this.cashierService.balanceCheck(cashierDto), HttpStatus.CREATED);
+            Cashier cashier = cashierService.getApiKey(apiKey);
+            if (cashier != null) {
+                cashierDto.setName(cashier.getName());
+                return new ResponseEntity<>(this.cashierService.balanceCheck(cashierDto), HttpStatus.CREATED);
+            }
         }catch (Exception e){
             return buildResponseEntity(new ApiException(HttpStatus.BAD_REQUEST, e.getMessage()));
         }
+        return buildResponseEntity(new ApiException(HttpStatus.UNAUTHORIZED, "Invalid api key!"));
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiException exception) {

@@ -1,2 +1,44 @@
 Log - - - 2024-03-24 00:27:26
 New cashier with name Martina was created!
+Log - - - 2024-03-24 10:39:45
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:01:50
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:09:08
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:11:24
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:13:01
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:13:50
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:15:00
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:16:54
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:18:43
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:25:06
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:32:37
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:32:54
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:39:26
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:41:23
+New cashier with name Martin was created!
+Log - - - 2024-03-24 11:41:38
+New cashier with name Martina was created!
+Log - - - 2024-03-24 11:42:44
+New cashier with name Martina was created!
+Log - - - 2024-03-24 12:40:35
+New cashier with name Martina was created!
+Log - - - 2024-03-24 12:42:29
+New cashier with name Martina was created!
+Log - - - 2024-03-24 12:47:54
+New cashier with name Martina was created!
+Log - - - 2024-03-24 12:55:33
+New cashier with name Martina was created!
+Log - - - 2024-03-24 12:59:28
+New cashier with name Martina was created!

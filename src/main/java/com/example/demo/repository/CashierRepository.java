@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CashierRepository extends JpaRepository<Cashier, Long> {
     Cashier findByName(String name);
+    Cashier findByApiKey(String key);
 }

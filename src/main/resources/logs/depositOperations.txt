@@ -8,3 +8,41 @@ Log - - - 2024-03-24 00:29:19
 Cashier with name Martina has just deposited to the cash module 50BGN!
 Log - - - 2024-03-24 00:29:40
 Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 10:40:07
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 10:54:14
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:25:23
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:25:26
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:33:45
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:33:57
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:33:58
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:33:58
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:34:05
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:43:21
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:43:27
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 11:43:27
+Cashier with name Martina has just deposited to the cash module 50EUR!
+Log - - - 2024-03-24 12:41:57
+Cashier with name Martina has just deposited to the cash module 600EUR!
+Log - - - 2024-03-24 12:42:48
+Cashier with name Martina has just deposited to the cash module 600BGN!
+Log - - - 2024-03-24 12:43:26
+Cashier with name Martina has just deposited to the cash module 200EUR!
+Log - - - 2024-03-24 12:48:21
+Cashier with name Martina has just deposited to the cash module 600BGN!
+Log - - - 2024-03-24 12:48:35
+Cashier with name Martina has just deposited to the cash module 200EUR!
+Log - - - 2024-03-24 13:00:07
+Cashier with name Martina has just deposited to the cash module 600BGN!
+Log - - - 2024-03-24 13:00:37
+Cashier with name Martina has just deposited to the cash module 200EUR!
