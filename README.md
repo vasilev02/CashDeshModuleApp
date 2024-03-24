@@ -16,8 +16,6 @@ Withdrawal 1: 100 BGN, denomination: 5x10 BGN, 1x50 BGN
 Withdrawal 2: 500 EUR, denomination:10x50 EUR
 Deposit 1: 600 BGN, denomination: 10x10 BGN, 10x50 BGN
 
-## Usage
-
 ## Public part
 
 The application's public part represents endpoint to see register a new user with predifined amounts for BGN and EUR and denominations with qunatities of it: `http://localhost:8080/api/v1/create-cashier`.
@@ -25,13 +23,18 @@ The application's public part represents endpoint to see register a new user wit
 ## Private part
 
 The application's private part represents endpoints to deposit money: `http://localhost:8080/api/v1/cash-operation/deposit`, withdraw money: `http://localhost:8080/api/v1/cash-operation/withdraw`
-and see the user's details about his/her transactions(total amount of BGN and EUR, left denominations and quantites of it): `http://localhost:8080/api/v1/cash-balance/check`.
+and see the user's details about his/her transactions(total amount of BGN and EUR, left denominations and quantites of it): `http://localhost:8080/api/v1/cash-balance/check`. If you want to access these endpoint you will need a real api key putted in the Header.
 
 ## Error handling
 
 The error handling is handled by numerous checks by ApiException class which addto it a date, status and a message which we send it back to the controller. For the creation of user we check if we have such one with the same name. For the deposit we check: right currency
 BGN or EUR, amount at least 5(our module works only with banknotes, not coins), amount to be equal to the given banknotes, valid banknotes, valid quantities etc.
 For the withdraw the same as the deposit method but with a few more things like: checking if we have such amount to give already in our module, if we have such banknotes and enough quantity of it and etc.
+
+## Custom request header
+
+The module is using a custom request header named FIB-X-AUTH with API key which is given when a new cashier is created. In the body of the returned json we will see
+apiKey which we need to take and put it in the header in Postman with key: FIB-X-AUTH and value: 'our given api key' when we try to do deposit, withdraw and balance check. If we try to do it without this api key we will get a response of 401 Unauthorized. The other case is when we give such one but it is not the same, therefore we will get an error message that our api key is not valid.
 
 ## Languages and tools which I used to creat the application
 
